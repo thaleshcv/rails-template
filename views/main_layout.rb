@@ -8,11 +8,11 @@ def setup_main_layout
         <%= render ToastContainerComponent.new %>
         <%= yield %>
       </div>
-      <dialog id="turbo-confirm" class="border rounded-1 text-center">
+      <dialog id="turbo-confirm" class="border rounded text-center shadow" style="min-width: 320px;">
         <h6 class="fw-bold"><%= t("turbo_confirm.title") %></h6>
         <form method="dialog">
           <p class="py-3"><%= t("turbo_confirm.undone") %></p>
-          <div class="hstack justify-content-center gap-2">
+          <div class="d-grid gap-2 d-md-block">
             <button class="btn btn-primary btn-sm" value="confirm">
               <%= t("turbo_confirm.ok") %>
             </button>
