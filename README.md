@@ -7,7 +7,7 @@ Principais features:
 - Autenticação pronta com Devise (usuário com token e avatar via Active Storage)
 - Componentes para toasts (notificações) e dropdown de usuário
 - Layouts prontos (`application` e `main`) com topbar
-- Integração com Stimulus (controller de toast)
+- Integração com Stimulus (controller de toast, Turbo confirmation customizado)
 - Paginação com Pagy, autorização com Pundit
 - Formulários com Simple Form
 - Testes com RSpec e helpers para FactoryBot
