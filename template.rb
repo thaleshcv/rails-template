@@ -1,12 +1,9 @@
 # frozen_string_literal: true
 
-# def rails_file(filename, content)
-#   file filename, content, force: true
-# end
-
 require_relative "misc/gems"
 require_relative "misc/application"
 require_relative "misc/secure_token_param_concern"
+require_relative "misc/simple_form_bootstrap"
 require_relative "components/toast_component"
 require_relative "components/toast_container_component"
 require_relative "components/user_dropdown_component"
@@ -28,6 +25,7 @@ setup_gems
 # application and environments
 setup_application_rb
 setup_secure_token_param_concern
+setup_simple_form_bootstrap
 
 # compoents
 setup_toast_component
