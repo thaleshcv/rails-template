@@ -27,9 +27,9 @@ def setup_user_dropdown_component
         @user = user
       end
 
-      def render_in(view_context, &block)
+      def render_in(view_context, &)
         @view_context = view_context
-        @block_content = view_context.capture(&block) if block_given?
+        @block_content = view_context.capture(&) if block_given?
 
         content_tag(:li, class: "nav-item dropdown") do
           dropdown_toggle + dropdown_menu
@@ -46,12 +46,12 @@ def setup_user_dropdown_component
         link_classes = "d-flex align-items-center gap-1 text-decoration-none dropdown-toggle p-1 rounded"
 
         tag.a(class: link_classes,
-              "data-bs-toggle": "dropdown",
-              href: "#",
-              role: "button",
-              "aria-haspopup": "true",
-              "aria-expanded": "false") do
-          avatar + user_info
+          "data-bs-toggle": "dropdown",
+          href: "#",
+          role: "button",
+          "aria-haspopup": "true",
+          "aria-expanded": "false") do
+          avatar
         end
       end
 
@@ -61,31 +61,37 @@ def setup_user_dropdown_component
         else
           initial = user.name.to_s.strip.first&.upcase || "?"
           tag.span(initial,
-            class: "d-inline-flex justify-content-center align-items-center bg-secondary text-white rounded",
+            class: "d-inline-flex justify-content-center align-items-center text-bg-info rounded",
             style: "width:42px; height:42px; font-weight:bold; font-size:1rem;")
         end
       end
 
+      def divider
+        tag.li { tag.hr(class: "dropdown-divider") }
+      end
+
       def user_info
-        tag.span(class: "d-flex flex-column") do
-          name_line
+        tag.p class: "d-flex flex-column px-3" do
+          name_line + email_line
         end
       end
 
       def name_line
-        tag.span(class: "text-truncate", style: "max-width:99.9%;") do
-          truncate(user.name, length: 12)
-        end
+        tag.span(user.name)
+      end
+
+      def email_line
+        tag.span(user.email, class: "fst-italic")
       end
 
       def dropdown_menu
-        content_tag(:ul, class: "dropdown-menu dropdown-menu-end") do
-          safe_join([block_content, logout_item].compact)
+        tag.ul class: "dropdown-menu dropdown-menu-end" do
+          safe_join([user_info, divider, block_content, logout_item].compact)
         end
       end
 
       def logout_item
-        content_tag(:li) do
+        tag.li do
           button_to("Logout", destroy_user_session_path, method: :delete, class: "dropdown-item")
         end
       end

@@ -17,6 +17,7 @@ require_relative "views/devise_registrations_new"
 require_relative "views/devise_sessions_new_view"
 require_relative "controllers/application_controller"
 require_relative "javascript/custom_turbo_confirmation"
+require_relative "stylesheets/application_scss"
 require_relative "stimulus/toast_controller"
 
 # ruby gems
@@ -46,6 +47,9 @@ setup_devise_sessions_new_view
 
 # controllers
 setup_application_controller
+
+# stylesheets
+setup_application_scss
 
 # javascript and stimulus
 setup_custom_turbo_confirmation
