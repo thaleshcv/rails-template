@@ -2,11 +2,12 @@
 
 require_relative "misc/gems"
 require_relative "misc/application"
-require_relative "misc/secure_token_param_concern"
 require_relative "misc/simple_form_bootstrap"
 require_relative "components/toast_component"
 require_relative "components/toast_container_component"
 require_relative "components/user_dropdown_component"
+require_relative "models/discardable_concern"
+require_relative "models/secure_token_param_concern"
 require_relative "models/devise_user"
 require_relative "views/topbar_partial"
 require_relative "views/application_layout"
@@ -25,7 +26,6 @@ setup_gems
 
 # application and environments
 setup_application_rb
-setup_secure_token_param_concern
 setup_simple_form_bootstrap
 
 # compoents
@@ -34,6 +34,8 @@ setup_toast_container_component
 setup_user_dropdown_component
 
 # models
+setup_discardable_concern
+setup_secure_token_param_concern
 setup_devise_user_model
 
 # view files
