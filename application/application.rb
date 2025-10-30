@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-def setup_application_rb
+def setup_application
   new_code = <<~CODE
     \t\tconfig.i18n.default_locale = "pt-BR"
     \t\tconfig.time_zone = "Brasilia"

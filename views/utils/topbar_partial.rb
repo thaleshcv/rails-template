@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-def setup_topbar_partial
+def setup_topbar
   file "app/views/layouts/_topbar.html.erb", <<~CODE
     <nav class="navbar fixed-top navbar-expand-lg bg-primary" data-bs-theme="dark">
       <div class="container-fluid">
