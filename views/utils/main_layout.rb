@@ -3,10 +3,8 @@
 def setup_main_layout
   file "app/views/layouts/main.html.erb", <<~CODE
     <%= content_for :content do %>
+      <%= render 'layouts/topbar' %>
       <div class="main-container">
-        <section class="topbar-content">
-          <%= render 'layouts/topbar' %>
-        </section>
         <section class="body-content">
           <div class="<%= @_main_layout_container_fluid.presence ? 'container-fluid' : 'container' %>">
             <%= render ToastContainerComponent.new %>

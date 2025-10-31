@@ -10,6 +10,7 @@ def setup_extras_css
     }
 
     body {
+      display: block;
       min-height: 100vh;
     }
 

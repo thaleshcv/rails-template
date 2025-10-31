@@ -2,37 +2,29 @@
 
 def setup_topbar
   file "app/views/layouts/_topbar.html.erb", <<~CODE
-    <nav class="navbar fixed-top navbar-expand-lg bg-primary" data-bs-theme="dark">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">
-          MyApplication
-        </a>
-        <button class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbar01"
-          aria-controls="navbar01"
-          aria-expanded="false"
-          aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbar01">
-          <ul class="navbar-nav ms-auto align-items-center">
-            <li class="nav-item">
-              <%= link_to root_path, class: "nav-link active" do %>
-                Home
-                <span class="visually-hidden">(current)</span>
-              <% end %>
-            </li>
-            <li class="nav-item">
-              <%= link_to root_path, class: "nav-link" do %>
-                Link
-              <% end %>
-            </li>
-            <%= render UserDropdownComponent.new(user: current_user) %>
-          </ul>
-        </div>
-      </div>
-    </nav>
+    <header class="site-nav" data-controller="navbar">
+      <a href="#" class="brand">
+        <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="10" fill="currentColor" opacity="0.12"></circle>
+          <path d="M7 12h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+        </svg>
+        <%= Rails.application.name.capitalize %>
+      </a>
+
+      <button
+        data-navbar-target="toggle"
+        data-action="click->navbar#toggleMenu"
+        class="nav-toggle"
+        aria-expanded="false"
+        aria-label="Abrir menu">☰</button>
+
+      <nav data-navbar-target="menu" class="nav-links" aria-label="Links principais">
+        <a href="#home">Home</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#contato">Contato</a>
+        <a href="#login" class="outline">Entrar</a>
+      </nav>
+    </header>
   CODE
 end
