@@ -25,6 +25,7 @@ def setup_gems
 
   setup_rspec
   setup_pagy
+  setup_simple_form
 
   # remove commented lines from Gemfile
   gsub_file "Gemfile", /^\s*#.*\n/, ""

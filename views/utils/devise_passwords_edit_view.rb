@@ -1,14 +1,16 @@
 # frozen_string_literal: true
 
 def setup_devise_sessions_edit_view
-  file "app/views/devise/passwords/edit.html.erb", <<~CODE
-    <div class="min-vh-100 d-flex flex-column justify-content-center align-items-center">
-      <div class="bg-white p-4 shadow rounded w-100" style="max-width: 400px;">
-        <div class="text-center">
-          <h2 class="my-3">
-            <%= t("devise.passwords.edit.change_your_password") %>
-          </h2>
-        </div>
+  file "app/views/devise/passwords/edit.html.erb", <<~'CODE'
+    <div class="auth-container">
+      <h1><%= Rails.application.name.capitalize %></h1>
+      <article>
+        <h2><%= t("devise.passwords.new.forgot_your_password") %></h2>
+
+        <% if flash.alert %>
+          <div class="alert alert-danger"><%= flash.alert %></div>
+        <% end %>
+
         <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
           <%= f.error_notification %>
           <%= f.input :reset_password_token, as: :hidden %>
@@ -21,14 +23,14 @@ def setup_devise_sessions_edit_view
           <%= f.input :password_confirmation,
             required: true,
             input_html: { autocomplete: "new-password" } %>
-          <div class="d-grid">
-            <%= f.button :submit, t("devise.passwords.edit.change_my_password"), class: "btn-primary" %>
+          <div>
+            <%= f.button :submit, t("devise.passwords.edit.change_my_password")  %>
           </div>
         <% end %>
-        <div class="my-3">
+        <div>
           <%= render "devise/shared/links" %>
         </div>
-      </div>
+      </article>
     </div>
   CODE
 end

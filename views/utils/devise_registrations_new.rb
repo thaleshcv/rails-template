@@ -1,12 +1,11 @@
 # frozen_string_literal: true
 
 def setup_devise_registrations_new_view
-  file "app/views/devise/registrations/new.html.erb", <<~CODE
-    <div class="min-vh-100 d-flex flex-column justify-content-center align-items-center">
-      <div class="bg-white p-4 shadow rounded w-100" style="max-width: 400px;">
-        <div class="text-center">
-          <h2 class="mb-3">Sign Up</h2>
-        </div>
+  file "app/views/devise/registrations/new.html.erb", <<~'CODE'
+    <div class="auth-container">
+      <h1><%= Rails.application.name.capitalize %></h1>
+      <article>
+        <h2><%= t("devise.registrations.new.sign_up") %></h2>
 
         <% if flash.alert %>
           <div class="alert alert-danger"><%= flash.alert %></div>
@@ -14,24 +13,24 @@ def setup_devise_registrations_new_view
 
         <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
           <%= f.input :email,
-                required: false,
-                autofocus: true,
-                input_html: { autocomplete: "email" } %>
+            required: false,
+            autofocus: true,
+            input_html: { autocomplete: "email" } %>
           <%= f.input :password,
-                required: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
+            required: true,
+            hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+            input_html: { autocomplete: "new-password" } %>
           <%= f.input :password_confirmation,
-                required: true,
-                input_html: { autocomplete: "new-password" } %>
+            required: true,
+            input_html: { autocomplete: "new-password" } %>
           <div class="d-grid">
-            <%= f.button :submit, "Sign Up", class: "btn-primary" %>
+            <%= f.button :submit, "Sign Up" %>
           </div>
         <% end %>
-        <div class="my-3">
+        <div>
           <%= render "devise/shared/links" %>
         </div>
-      </div>
+      </article>
     </div>
   CODE
 end

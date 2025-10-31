@@ -3,9 +3,8 @@
 def setup_stimulus_toast_controller
   rails_command("generate stimulus toast")
 
-  file "app/javascript/controllers/toast_controller.js", <<~CODE
+  file "app/javascript/controllers/toast_controller.js", <<~CODE, force: true
     import { Controller } from "@hotwired/stimulus";
-    import { Toast } from "bootstrap";
 
     // Connects to data-controller="toast"
     export default class extends Controller {
