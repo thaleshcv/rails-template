@@ -7,11 +7,16 @@ def setup_application_controller
 
       included do
         layout :select_layout
+        helper_method :current_layout
 
         private
 
         def select_layout
-          user_signed_in? ? "main" : "application"
+          @_current_layout = user_signed_in? ? "main" : "application"
+        end
+
+        def current_layout
+          @_current_layout
         end
       end
     end

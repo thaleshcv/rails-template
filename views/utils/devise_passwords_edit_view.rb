@@ -7,8 +7,8 @@ def setup_devise_sessions_edit_view
       <article>
         <h2><%= t("devise.passwords.new.forgot_your_password") %></h2>
 
-        <% if flash.alert %>
-          <div class="alert alert-danger"><%= flash.alert %></div>
+        <% flash.each do |type, message| %>
+          <%= render NoticeComponent.new(type, message) %>
         <% end %>
 
         <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>

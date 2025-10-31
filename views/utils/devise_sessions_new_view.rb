@@ -7,8 +7,8 @@ def setup_devise_sessions_new_view
       <article>
         <h2><%= t("devise.sessions.new.sign_in") %></h2>
 
-        <% if flash.alert %>
-          <div class="alert alert-danger"><%= flash.alert %></div>
+        <% flash.each do |type, message| %>
+          <%= render NoticeComponent.new(type, message) %>
         <% end %>
 
         <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>

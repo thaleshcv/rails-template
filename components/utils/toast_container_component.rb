@@ -13,10 +13,9 @@ def setup_toast_container_component
       def render_in(view_context)
         @view_context = view_context
 
-        content_tag(:div,
-          flash_messages,
-          id: "toast_container",
-          class: "toast-container position-fixed top-0 end-0 p-3")
+        content_tag(:div, id: "toast_container") do
+          safe_join(flash_messages)
+        end
       end
 
       private
@@ -26,7 +25,7 @@ def setup_toast_container_component
       delegate :flash, to: :view_context
 
       def flash_messages
-        safe_join(flash.map { |type, message| view_context.render ToastComponent.new(type, message) })
+        flash.map { |type, message| view_context.render ToastComponent.new(type, message) }
       end
     end
   CODE

@@ -1,12 +1,17 @@
 def setup_extras_css
   file "app/assets/stylesheets/extras.css", <<~CODE
     /* === Simple.css Utility Layer === */
-    /* Clean, modern, with rounded corners and soft shadows */
-
     :root {
       --radius: 8px;
       --shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
       --space: 1rem;
+      --color-success: #28a745;
+      --color-danger: #dc3545;
+      --color-warning: #ffc107;
+
+      --color-success-bg: #d4edda;
+      --color-danger-bg: #f8d7da;
+      --color-warning-bg: #fff3cd;
     }
 
     body {
@@ -122,6 +127,40 @@ def setup_extras_css
       transform: translateY(-2px);
     }
 
+    /* === Color Utilities === */
+    .text-success {
+      color: var(--color-success);
+    }
+    .text-danger {
+      color: var(--color-danger);
+    }
+    .text-warning {
+      color: var(--color-warning);
+    }
+
+    .bg-success {
+      background-color: var(--color-success-bg);
+      color: var(--color-success);
+    }
+    .bg-danger {
+      background-color: var(--color-danger-bg);
+      color: var(--color-danger);
+    }
+    .bg-warning {
+      background-color: var(--color-warning-bg);
+      color: var(--color-warning);
+    }
+
+    .notice.bg-success {
+      border-color: var(--color-success);
+    }
+    .notice.bg-danger {
+      border-color: var(--color-danger);
+    }
+    .notice.bg-warning {
+      border-color: var(--color-warning);
+    }
+
     /* === Responsive Helpers === */
     @media (max-width: 768px) {
       .flex-column-md {
@@ -129,6 +168,23 @@ def setup_extras_css
       }
       .hidden-md {
         display: none;
+      }
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        color-scheme: light;
+        --bg: #fff;
+        --accent-bg: #f5f7ff;
+        --text: #212121;
+        --text-light: #585858;
+        --accent: #0d47a1;
+        --accent-hover: #1266e2;
+        --accent-text: var(--bg);
+        --code: #d81b60;
+        --preformatted: #444;
+        --marked: #ffdd33;
+        --disabled: #efefef;
       }
     }
   CODE

@@ -7,8 +7,8 @@ def setup_devise_registrations_new_view
       <article>
         <h2><%= t("devise.registrations.new.sign_up") %></h2>
 
-        <% if flash.alert %>
-          <div class="alert alert-danger"><%= flash.alert %></div>
+        <% flash.each do |type, message| %>
+          <%= render NoticeComponent.new(type, message) %>
         <% end %>
 
         <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>

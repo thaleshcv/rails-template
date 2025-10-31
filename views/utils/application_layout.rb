@@ -25,7 +25,7 @@ def setup_application_layout
         <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
       </head>
 
-      <body>
+      <body data-layout="<%= current_layout %>">
         <%= content_for?(:content) ? yield(:content) : yield %>
       </body>
     </html>
