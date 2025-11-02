@@ -8,8 +8,6 @@ def setup_toast_container_component
       include ActionView::Helpers::TagHelper
       include ActionView::Helpers::CaptureHelper
 
-      def initialize; end
-
       def render_in(view_context)
         @view_context = view_context
 

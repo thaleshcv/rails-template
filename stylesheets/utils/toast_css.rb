@@ -19,8 +19,18 @@ def setup_toast_css
       border-radius: 8px;
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
       font-size: 0.9rem;
-      animation: slideInRight 0.3s ease, fadeOut 0.5s ease 4s forwards;
       cursor: pointer;
+      animation: slideInRight 0.3s ease, fadeOut 0.5s ease 5s forwards;
+    }
+
+    .toast.success {
+      color: var(--color-success);
+      background-color: var(--color-success-bg);
+    }
+
+    .toast.danger {
+      color: var(--color-danger);
+      background-color: var(--color-danger-bg);
     }
 
     @keyframes slideInRight {

@@ -25,6 +25,18 @@ def setup_topbar
         <a href="#contato">Contato</a>
         <a href="#login" class="outline">Entrar</a>
       </nav>
+      <%= render DropdownComponent.new(
+        align: :right,
+        label: truncate(current_user.name, length: 12),
+        button_class: "bg-primary",
+        menu_class: "menu-rounded",
+        items: [
+          { label: "Edit", url: root_path, class: "text-success" },
+          { label: "Delete", url: root_path, class: "text-danger" },
+          :separator,
+          { label: "View details", url: root_path }
+        ]
+      ) %>
     </header>
   CODE
 end

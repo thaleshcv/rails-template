@@ -10,7 +10,6 @@ def setup_site_nav_css
       background: var(--accent, #fff);
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
     }
-
     .site-nav .brand {
       display: flex;
       align-items: center;
@@ -19,26 +18,26 @@ def setup_site_nav_css
       text-decoration: none;
       color: var(--accent-text);
     }
-
     .site-nav .nav-links {
+      padding-top: 0;
       display: flex;
       gap: 1rem;
       align-items: center;
+      min-height: 70px;
     }
-
     .site-nav .nav-links a {
       text-decoration: none;
-      padding: 0.4rem 0.6rem;
+      padding: 0 0.6rem;
+      margin-top: 0;
+      margin-bottom: 0;
       border: none;
       color: var(--accent-text);
     }
-
     .site-nav .nav-links a:hover,
     .site-nav .nav-links a:focus {
       background: var(--accent-hover);
       outline: none;
     }
-
     .nav-toggle {
       display: none;
       background: none;
@@ -52,7 +51,6 @@ def setup_site_nav_css
       outline: 2px solid Highlight;
       outline-offset: 2px;
     }
-
     @media (max-width: 720px) {
       .nav-toggle {
         display: inline-flex;

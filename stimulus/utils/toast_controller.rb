@@ -6,27 +6,19 @@ def setup_stimulus_toast_controller
   file "app/javascript/controllers/toast_controller.js", <<~CODE, force: true
     import { Controller } from "@hotwired/stimulus";
 
-    // Connects to data-controller="toast"
     export default class extends Controller {
-      initialize() {
-        this.remove = this.remove.bind(this);
-      }
-
       connect() {
-        this.toast = new Toast(this.element);
-        this.element.addEventListener("hidden.bs.toast", this.remove);
-
-        if (!this.toast.isShown()) {
-          this.toast.show();
-        }
+        this.element.addEventListener("click", () => this.dismiss());
+        this.element.addEventListener("animationend", (event) => {
+          if (event.animationName === "fadeOut") {
+            this.dismiss();
+          }
+        });
       }
 
-      disconnect() {
-        this.element.removeEventListener("hidden.bs.toast", this.remove);
-        this.toast.dispose();
-      }
-
-      remove() {
+      dismiss() {
+        if (this._removed) return;
+        this._removed = true;
         this.element.remove();
       }
     }

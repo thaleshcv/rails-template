@@ -8,7 +8,6 @@ def setup_extras_css
       --color-success: #28a745;
       --color-danger: #dc3545;
       --color-warning: #ffc107;
-
       --color-success-bg: #d4edda;
       --color-danger-bg: #f8d7da;
       --color-warning-bg: #fff3cd;
@@ -26,14 +25,12 @@ def setup_extras_css
     .inline-flex {
       display: inline-flex;
     }
-
     .flex-row {
       flex-direction: row;
     }
     .flex-column {
       flex-direction: column;
     }
-
     .justify-start {
       justify-content: flex-start;
     }
@@ -64,7 +61,6 @@ def setup_extras_css
     .margin {
       margin: var(--space);
     }
-
     .padding-top {
       padding-top: var(--space);
     }
@@ -77,7 +73,6 @@ def setup_extras_css
     .padding-right {
       padding-right: var(--space);
     }
-
     .margin-top {
       margin-top: var(--space);
     }
@@ -137,7 +132,6 @@ def setup_extras_css
     .text-warning {
       color: var(--color-warning);
     }
-
     .bg-success {
       background-color: var(--color-success-bg);
       color: var(--color-success);
@@ -150,7 +144,6 @@ def setup_extras_css
       background-color: var(--color-warning-bg);
       color: var(--color-warning);
     }
-
     .notice.bg-success {
       border-color: var(--color-success);
     }
