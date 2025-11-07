@@ -1,16 +1,24 @@
-def setup_site_nav_css
-  file "app/assets/stylesheets/site-nav.css", <<~CODE
-    .site-nav {
+def setup_navbar_css
+  file "app/assets/stylesheets/navbar.css", <<~CODE
+    /* simple.css reset */
+    header nav a,
+    header nav a:visited {
+      border: none;
+    }
+    /* end of reset */
+
+    header.navbar {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 1rem;
       padding: 0.5rem 1rem;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
       background: var(--accent, #fff);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
     }
-    .site-nav .brand {
+
+    header.navbar .brand {
       display: flex;
       align-items: center;
       gap: 0.5rem;
@@ -18,46 +26,52 @@ def setup_site_nav_css
       text-decoration: none;
       color: var(--accent-text);
     }
-    .site-nav .nav-links {
-      padding-top: 0;
+
+    header.navbar .nav-links {
       display: flex;
       gap: 1rem;
       align-items: center;
-      min-height: 70px;
     }
-    .site-nav .nav-links a {
-      text-decoration: none;
-      padding: 0 0.6rem;
-      margin-top: 0;
-      margin-bottom: 0;
-      border: none;
+
+    header.navbar .nav-links a {
       color: var(--accent-text);
+      text-decoration: none;
     }
-    .site-nav .nav-links a:hover,
-    .site-nav .nav-links a:focus {
-      background: var(--accent-hover);
+
+    header.navbar .nav-links a:hover,
+    header.navbar .nav-links a:focus {
+      background: var(--bg);
+      color: var(--accent);
       outline: none;
     }
-    .nav-toggle {
+
+    header.navbar .nav-toggle {
       display: none;
       background: none;
       border: 0;
       font-size: 1.3rem;
       padding: 0.4rem;
-      margin: 0 !important;
       border-radius: 6px;
     }
-    .nav-toggle:focus {
-      outline: 2px solid Highlight;
-      outline-offset: 2px;
+
+    /* dropdown */
+    header.navbar .dropdown {
+      font-size: 1rem;
     }
+    header.navbar .dropdown .dropdown-button {
+      background-color: var(--accent);
+      color: var(--accent-text);
+      border: none;
+    }
+    /* end dropdown */
+
     @media (max-width: 720px) {
-      .nav-toggle {
+      header.navbar .nav-toggle {
         display: inline-flex;
         align-items: center;
-        color: var(--accent-text);
       }
-      .site-nav .nav-links {
+
+      header.navbar .nav-links {
         position: absolute;
         top: 100%;
         right: 0;
@@ -68,13 +82,20 @@ def setup_site_nav_css
         padding: 0.5rem;
         border-radius: 8px;
         box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-        background: var(--accent, #fff);
+        background: var(--bg, #fff);
         display: none;
       }
-      .site-nav .nav-links.open {
+
+      header.navbar .nav-links a,
+      header.navbar .nav-links a:visited {
+        color: var(--accent);
+      }
+
+      header.navbar .nav-links.open {
         display: flex;
       }
-      .site-nav {
+
+      header.navbar {
         position: relative;
       }
     }

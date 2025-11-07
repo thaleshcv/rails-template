@@ -3,7 +3,7 @@
 def setup_main_layout
   file "app/views/layouts/main.html.erb", <<~CODE
     <%= content_for :content do %>
-      <%= render 'layouts/topbar' %>
+      <%= render 'layouts/navbar' %>
       <main class="main-container">
         <section class="body-content">
           <%= yield %>

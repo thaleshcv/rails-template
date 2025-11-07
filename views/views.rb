@@ -1,7 +1,7 @@
 Dir[File.join(File.expand_path("./utils", __dir__), "**", "*.rb")].sort.each { |file| require file }
 
 def setup_views
-  setup_topbar
+  setup_navbar
   setup_application_layout
   setup_main_layout
   setup_devise_sessions_edit_view

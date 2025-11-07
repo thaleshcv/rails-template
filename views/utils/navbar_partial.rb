@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-def setup_topbar
-  file "app/views/layouts/_topbar.html.erb", <<~CODE
-    <header class="site-nav" data-controller="navbar">
+def setup_navbar
+  file "app/views/layouts/_navbar.html.erb", <<~CODE
+    <header class="navbar" data-controller="navbar">
       <a href="#" class="brand">
         <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true">
           <circle cx="12" cy="12" r="10" fill="currentColor" opacity="0.12"></circle>
@@ -17,7 +17,6 @@ def setup_topbar
         class="nav-toggle"
         aria-expanded="false"
         aria-label="Abrir menu">☰</button>
-
       <nav data-navbar-target="menu" class="nav-links" aria-label="Links principais">
         <a href="#home">Home</a>
         <a href="#sobre">Sobre</a>
@@ -25,11 +24,10 @@ def setup_topbar
         <a href="#contato">Contato</a>
         <a href="#login" class="outline">Entrar</a>
       </nav>
+
       <%= render DropdownComponent.new(
         align: :right,
         label: truncate(current_user.name, length: 12),
-        button_class: "bg-primary",
-        menu_class: "menu-rounded",
         items: [
           { label: "Edit", url: root_path, class: "text-success" },
           { label: "Delete", url: root_path, class: "text-danger" },

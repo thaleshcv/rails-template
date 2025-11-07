@@ -1,8 +1,5 @@
 def setup_dropdown_css
-  file "app/assets/stykesheets/dropdown.css", <<~CODE
-    .site-nav .dropdown-menu .dropdown-link {
-      color: var(--text);
-    }
+  file "app/assets/stylesheets/dropdown.css", <<~'CODE'
     .dropdown {
       position: relative;
       display: inline-block;
@@ -17,9 +14,17 @@ def setup_dropdown_css
       margin-bottom: 0;
     }
     .dropdown-button:hover {
-      background-color: var(--accent-bg) !important;
+      background-color: var(--bg) !important;
       color: var(--accent) !important;
     }
+    .dropdown-button::after {
+      content: "\25BE";
+      position: absolute;
+      right: 2px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
     /* Default alignment: left */
     .dropdown-menu {
       position: absolute;
