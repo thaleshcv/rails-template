@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-def setup_navbar
+def setup_navbar_partial
   file "app/views/layouts/_navbar.html.erb", <<~CODE
     <header class="navbar" data-controller="navbar">
       <a href="#" class="brand">

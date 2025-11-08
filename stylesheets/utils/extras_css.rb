@@ -21,6 +21,56 @@ def setup_extras_css
       min-height: 100vh;
     }
 
+    dialog {
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+
+    /* primary button */
+    .button.primary {
+      background-color: var(--accent);
+      color: var(--accent-text);
+    }
+
+    /* generic button */
+    button,
+    .button,
+    a.button,
+    input[type="submit"],
+    input[type="reset"],
+    input[type="button"] {
+      border: var(--border-width) solid var(--accent);
+      background-color: var(--bg);
+      color: var(--accent);
+      padding: 0.5em;
+      text-decoration: none;
+      line-height: normal;
+    }
+
+    /* hovered button */
+    button:enabled:hover,
+    .button:not([aria-disabled="true"]):hover,
+    input[type="submit"]:enabled:hover,
+    input[type="reset"]:enabled:hover,
+    input[type="button"]:enabled:hover {
+      background-color: var(--accent-hover);
+      border-color: var(--accent-hover);
+      cursor: pointer;
+      color: var(--accent-text);
+    }
+
+    /* disabled button */
+    .button[aria-disabled="true"],
+    input:disabled,
+    textarea:disabled,
+    select:disabled,
+    button[disabled] {
+      cursor: not-allowed;
+      background-color: var(--disabled);
+      border-color: var(--disabled);
+      color: var(--text-light);
+    }
+
     /* === Flexbox === */
     .flex {
       display: flex;
@@ -34,6 +84,12 @@ def setup_extras_css
     .flex-column {
       flex-direction: column;
     }
+    .flex-gap {
+      gap: 1rem;
+    }
+    .flex-auto {
+      flex: 1;
+    }
     .justify-start {
       justify-content: flex-start;
     }
@@ -46,7 +102,9 @@ def setup_extras_css
     .justify-between {
       justify-content: space-between;
     }
-
+    .justify-around {
+      justify-content: space-around;
+    }
     .items-start {
       align-items: flex-start;
     }
@@ -167,6 +225,7 @@ def setup_extras_css
       }
     }
 
+    /* === Force light mode === */
     @media (prefers-color-scheme: dark) {
       :root {
         color-scheme: light;
