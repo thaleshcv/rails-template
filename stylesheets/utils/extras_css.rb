@@ -8,6 +8,8 @@ def setup_extras_css
       --radius: 8px;
       --shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
       --space: 1rem;
+      --bg: #f5f5f5;
+      --white: #fff;
       --color-success: #28a745;
       --color-danger: #dc3545;
       --color-warning: #ffc107;
@@ -229,7 +231,8 @@ def setup_extras_css
     @media (prefers-color-scheme: dark) {
       :root {
         color-scheme: light;
-        --bg: #fff;
+        --bg: #f5f5f5;
+        --white: #fff;
         --accent-bg: #f5f7ff;
         --text: #212121;
         --text-light: #585858;
