@@ -13,9 +13,8 @@ def setup_toast_css
     .toast {
       display: flex;
       align-items: center;
-      min-width: 240px;
-      max-width: 360px;
-      padding: 0.75rem 1rem;
+      width: 360px;
+      padding: 1.2rem 1rem;
       border-radius: 8px;
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
       font-size: 0.9rem;

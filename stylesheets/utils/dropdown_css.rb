@@ -58,7 +58,7 @@ def setup_dropdown_css
       padding: 0.5rem 8px;
       margin: 0;
       text-decoration: none;
-      color: var(--accent);
+      color: var(--text) !important;
       border-radius: 0;
     }
     .dropdown-link:hover {
