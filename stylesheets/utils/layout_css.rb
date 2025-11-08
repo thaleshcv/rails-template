@@ -10,16 +10,27 @@ def setup_layout_css
         "footer";
     }
 
-    body[data-layout="main"] .site-nav {
+    body[data-layout="main"] > header {
       grid-area: navbar;
     }
 
-    body[data-layout="main"] .main-container {
+    body[data-layout="main"] > main {
       grid-area: main;
     }
 
-    body[data-layout="main"] .footer {
+    body[data-layout="main"] > footer {
       grid-area: footer;
+      margin-top: 0;
+    }
+
+    section.main-container {
+      padding: 1.5rem !important;
+      background-color: var(--white);
+      box-shadow: var(--shadow);
+      border-radius: var(--radius);
+      min-height: 100%;
+      border-bottom: none;
+      margin: 0;
     }
   CODE
 end

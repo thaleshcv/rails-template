@@ -23,6 +23,14 @@ def setup_extras_css
       min-height: 100vh;
     }
 
+    main {
+      padding: 1.5rem 1rem 1rem 1rem;
+    }
+
+    body > footer {
+      border: none;
+    }
+
     dialog {
       text-align: center;
       box-shadow: var(--shadow);
