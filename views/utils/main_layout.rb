@@ -8,7 +8,7 @@ def setup_main_layout
         <section class="body-content">
           <%= yield %>
         </section>
-        <%= render ToastContainerComponent.new %>
+        <%= render partial: "layouts/toast_container" %>
         <%= render partial: "layouts/turbo_confirm" %>
       </main>
       <footer class="footer">
