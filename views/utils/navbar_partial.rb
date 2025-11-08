@@ -8,7 +8,7 @@ def setup_navbar
           <circle cx="12" cy="12" r="10" fill="currentColor" opacity="0.12"></circle>
           <path d="M7 12h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
         </svg>
-        <%= Rails.application.name.capitalize %>
+        <%= t("application.name") %>
       </a>
 
       <button

@@ -5,7 +5,7 @@ def setup_application_layout
     <!DOCTYPE html>
     <html>
       <head>
-        <title><%= content_for(:title) || Rails.application.name.capitalize %></title>
+        <title><%= content_for(:title) || t("application.name") %></title>
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="turbo-prefetch" content="false">

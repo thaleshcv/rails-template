@@ -25,7 +25,7 @@ def setup_main_layout
         </dialog>
       </main>
       <footer class="footer">
-        &copy;2025 Untitled Inc.
+        &copy;2025 <%= t("application.name") %>
       </footer>
     <% end %>
     <%= render template: 'layouts/application' %>
